@@ -1,0 +1,10 @@
+operation,arg1,arg2,expectedResult,groups
+addition,2,3,5,basicOperations
+subtraction,10,5,5,basicOperations
+multiplication,4,5,20,basicOperations
+division,10,2,5,basicOperations
+squareroot,9,,3,advancedOperations
+power,2,3,8,advancedOperations
+sin,30,,0.5,advancedOperations
+cos,60,,0.5,advancedOperations
+tan,45,,1.0,advancedOperations
