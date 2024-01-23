@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="/home/knoldus/IdeaProjects/Assignment_TestNG">
+<suite name="All Test Suite" parallel="methods" thread-count="3">
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    </listeners>
+    <test verbose="2" preserve-order="true" name="Assignment_TestNG">
         <classes>
-            <class name="temp.testng.tests.ScientificCalculatorTest">
+            <class name="ScientificCalculatorTest">
                 <methods>
-                    <include name="performOperation"/>
-                    <include name="performAdvancedOperation"/>
+                    <include name="basicOperations.*"/> 
+                    <include name="testSquareRoot"/>
+                    <include name="invalidAddition"/>
+                    <include name="invalidDivision"/>
                 </methods>
             </class>
         </classes>

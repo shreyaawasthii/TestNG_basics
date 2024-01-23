@@ -30,19 +30,62 @@ package temp.testng.methods;
         }
 
         public double power(double base, double exponent) {
-            return Math.pow(base, exponent);
+            if (exponent < 0) {
+                throw new IllegalArgumentException("Exponent must be a non-negative number");
+            }
+
+            double result = 1;
+            for (int i = 0; i < exponent; i++) {
+                result *= base;
+            }
+            return result;
         }
 
-        public double sin(double angleInDegrees) {
-            return Math.sin(Math.toRadians(angleInDegrees));
+        public double sin(double angle) {
+            // Convert angle to radians
+            angle = Math.toRadians(angle);
+
+            double result = 0;
+            int precision = 10;
+
+            for (int i = 0; i < precision; i++) {
+                result += (Math.pow(-1, i) / factorial(2 * i + 1)) * Math.pow(angle, 2 * i + 1);
+            }
+
+            return result;
         }
 
-        public double cos(double angleInDegrees) {
-            return Math.cos(Math.toRadians(angleInDegrees));
+        public double cos(double angle) {
+            // Convert angle to radians
+            angle = Math.toRadians(angle);
+
+            double result = 0;
+            int precision = 10;
+
+            for (int i = 0; i < precision; i++) {
+                result += (Math.pow(-1, i) / factorial(2 * i)) * Math.pow(angle, 2 * i);
+            }
+
+            return result;
         }
 
-        public double tan(double angleInDegrees) {
-            return Math.tan(Math.toRadians(angleInDegrees));
+        public double tan(double angle) {
+            double sinValue = sin(angle);
+            double cosValue = cos(angle);
+
+            if (cosValue == 0) {
+                throw new ArithmeticException("Tan is undefined for angle " + angle);
+            }
+
+            return sinValue / cosValue;
+        }
+
+        private long factorial(int n) {
+            if (n == 0 || n == 1) {
+                return 1;
+            } else {
+                return n * factorial(n - 1);
+            }
         }
     }
 

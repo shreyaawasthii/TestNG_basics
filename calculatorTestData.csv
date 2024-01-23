@@ -8,3 +8,5 @@ power,2,3,8,advancedOperations
 sin,30,,0.5,advancedOperations
 cos,60,,0.5,advancedOperations
 tan,45,,1.0,advancedOperations
+invalidaddition,2.5,3.5,NumberFormatException,basicOperations
+invaliddivision,10,0,ArithmeticException,basicOperations
